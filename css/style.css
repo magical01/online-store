@@ -840,6 +840,10 @@ p {
   color: #1C62CD;
 }
 
+.tab.products__tab:hover.tab--active {
+  color: #000;
+}
+
 .products__tab:not(:last-child) {
   margin-right: 50px;
 }
@@ -1367,8 +1371,31 @@ p {
   width: 100%;
 }
 
+.irs--flat .irs-from {
+  display: block;
+}
+
+.irs--flat .irs-to {
+  display: block;
+}
+
 .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
-  display: none;
+  display: block;
+}
+
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
+  border-top-color: transparent;
+}
+
+.irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+  color: black;
+  font-size: 14px;
+  line-height: 1.333;
+  text-shadow: none;
+  padding: 1px 6px;
+  background-color: transparent;
+  border-radius: 0;
+  margin-top: 35px;
 }
 
 .irs--flat .irs-min, .irs--flat .irs-max {
@@ -1915,6 +1942,12 @@ select {
   line-height: 24px;
   color: #2F3035;
   opacity: 0.6;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.card__tab:hover {
+  opacity: 1;
 }
 
 .tab.card__tab.tab--active {
