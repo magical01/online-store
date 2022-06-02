@@ -138,6 +138,10 @@ h1, h2, h3, h4, h5, h6, p {
   background-color: #1C62CD;
 }
 
+.header__bottom {
+  background-color: #F0F0F4;
+}
+
 .menu-categories__item {
   position: relative;
 }
@@ -147,7 +151,6 @@ h1, h2, h3, h4, h5, h6, p {
   align-items: center;
   justify-content: space-around;
   min-height: 53px;
-  background-color: #F0F0F4;
 }
 .menu-categories__link {
   position: absolute;
@@ -537,6 +540,7 @@ h1, h2, h3, h4, h5, h6, p {
     position: absolute;
     display: inline-block;
     top: 30%;
+    right: 13%;
     padding: 18px 21px;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -805,7 +809,7 @@ h1, h2, h3, h4, h5, h6, p {
     }
   }
   &__filter-item button {
-    padding: 6px 24px;
+    padding: 3px 24px;
     border: none;
     border-radius: 3px;
     font-size: 14px;
@@ -833,9 +837,13 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
 }
+
+.jq-selectbox__select-text {
+  font-family: 'SFProDisplayRegular', sans-serif;
+}
 .select-item {
   margin-right: 34px;
-  padding: 7px 10px 7px 20px;
+  padding: 7px 10px 5px 10px;
   border: 1px solid #D7D9DF;
   font-size: 14px;
   line-height: 17px;
@@ -1051,9 +1059,13 @@ h1, h2, h3, h4, h5, h6, p {
   line-height: 19px;
   padding-bottom: 14px;
 }
-// .filter__item-listselect {
-  
-// }
+select {
+  color: transparent;
+}
+.filter__item-listselect option {
+  display: none;
+  color: transparent;
+}
 
 .jq-selectbox__select {
   height: 20px;
@@ -1552,6 +1564,10 @@ h1, h2, h3, h4, h5, h6, p {
   display: none;
 }
 
+.footer__topdrop {
+  pointer-events: none;
+}
+
 @media (max-width: 1300px) {
 
 }
@@ -1844,6 +1860,7 @@ h1, h2, h3, h4, h5, h6, p {
   }
   .footer__topdrop {
     position: relative;
+    pointer-events: auto;
     &::after {
       content: "";
       position: absolute;
