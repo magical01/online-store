@@ -103,9 +103,13 @@ $(function(){
     normalFill: "#C4C4C4"
   });
 
-  $('.menu__burger').on('click', function() {
-    $('.menu-mobile__list').toggleClass('menu-mobile__list--active')
-  });
+  // $('.menu__burger').on('click', function() {
+  //   $('.menu-mobile__list').toggleClass('menu-mobile__list--active')
+  //   $('.page__body').toggleClass('stop-scroll')
+  //   $('.menu__burger').toggleClass('menu__burger--active')
+  //   $('.shadow').toggleClass('shadow-open')
+  // });
+
 
   $('.footer__topdrop').on('click', function() {
     $(this).next().slideToggle();
@@ -118,3 +122,36 @@ $(function(){
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.querySelector('.page__body');
+  const burger = document.querySelector('.menu__burger');
+  const menu = document.querySelector('.menu-mobile__list');
+  const shadow = document.querySelector('.shadow');
+  const menuItems = document.querySelectorAll('.menu-mobile__item');
+
+  burger.addEventListener('click', () => {
+    body.classList.toggle('stop-scroll');
+    burger.classList.toggle('menu__burger--active')
+    menu.classList.toggle('menu-mobile__list--active');
+    shadow.classList.toggle('shadow-open');
+  })
+
+  menuItems.forEach(elem => {
+    elem.addEventListener('click', () => {
+      body.classList.remove('stop-scroll');
+      burger.classList.remove('menu__burger--active')
+      menu.classList.remove('menu-mobile__list--active');
+      shadow.classList.remove('shadow-open');
+    })
+  })
+
+  shadow.addEventListener('click', (event) => {
+    if (event.target.closest('.menu-mobile__list--active') === null) {
+      body.classList.remove('stop-scroll');
+      burger.classList.remove('menu__burger--active')
+      menu.classList.remove('menu-mobile__list--active');
+      shadow.classList.remove('shadow-open');
+    } 
+  })
+  
+});
