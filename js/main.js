@@ -103,12 +103,45 @@ $(function(){
     normalFill: "#C4C4C4"
   });
 
-  // $('.menu__burger').on('click', function() {
-  //   $('.menu-mobile__list').toggleClass('menu-mobile__list--active')
-  //   $('.page__body').toggleClass('stop-scroll')
-  //   $('.menu__burger').toggleClass('menu__burger--active')
-  //   $('.shadow').toggleClass('shadow-open')
-  // });
+  $('.menu__burger').on('click', function() {
+    $('.menu-mobile__list').toggleClass('menu-mobile__list--active')
+    $('.page__body').toggleClass('stop-scroll')
+    $('.menu__burger').toggleClass('menu__burger--active')
+    $('.shadow').toggleClass('shadow-open')
+  });
+
+  $('.menu-mobile__item').on('click', function() {
+    $('.page__body').removeClass('stop-scroll');
+    $('.menu__burger').removeClass('menu__burger--active');
+    $('.menu-mobile__list').removeClass('menu-mobile__list--active');
+    $('.shadow').removeClass('shadow-open');
+  });
+
+  $('.shadow').on('click', function(event) {
+    if (event.target.closest('.menu-mobile__list--active') === null) {
+      $('.page__body').removeClass('stop-scroll');
+      $('.menu__burger').removeClass('menu__burger--active');
+      $('.menu-mobile__list').removeClass('menu-mobile__list--active');
+      $('.shadow').removeClass('shadow-open');
+    }
+  });
+
+  $('.user-list__login, .menu-mobile__login').on('click', function() {
+    $('.login').addClass('login--active');
+    // $('.login-inner').addClass('login-inner--active');
+    $('.page__body').addClass('stop-scroll');
+    
+  });
+
+  $('.login-form__close').on('click', function() {
+    $('.login').removeClass('login--active');
+    // $('.login-inner').removeClass('login-inner--active');
+    $('.page__body').removeClass('stop-scroll');
+  });
+
+  
+
+
 
 
   $('.footer__topdrop').on('click', function() {
@@ -122,36 +155,7 @@ $(function(){
 
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const body = document.querySelector('.page__body');
-  const burger = document.querySelector('.menu__burger');
-  const menu = document.querySelector('.menu-mobile__list');
-  const shadow = document.querySelector('.shadow');
-  const menuItems = document.querySelectorAll('.menu-mobile__item');
+// document.addEventListener('click', (ev) => {
+//   console.log(ev.target)
+// })
 
-  burger.addEventListener('click', () => {
-    body.classList.toggle('stop-scroll');
-    burger.classList.toggle('menu__burger--active')
-    menu.classList.toggle('menu-mobile__list--active');
-    shadow.classList.toggle('shadow-open');
-  })
-
-  menuItems.forEach(elem => {
-    elem.addEventListener('click', () => {
-      body.classList.remove('stop-scroll');
-      burger.classList.remove('menu__burger--active')
-      menu.classList.remove('menu-mobile__list--active');
-      shadow.classList.remove('shadow-open');
-    })
-  })
-
-  shadow.addEventListener('click', (event) => {
-    if (event.target.closest('.menu-mobile__list--active') === null) {
-      body.classList.remove('stop-scroll');
-      burger.classList.remove('menu__burger--active')
-      menu.classList.remove('menu-mobile__list--active');
-      shadow.classList.remove('shadow-open');
-    } 
-  })
-  
-});
