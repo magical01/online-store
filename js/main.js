@@ -138,12 +138,7 @@ $(function(){
     // $('.login-inner').removeClass('login-inner--active');
     $('.page__body').removeClass('stop-scroll');
   });
-
   
-
-
-
-
   $('.footer__topdrop').on('click', function() {
     $(this).next().slideToggle();
     $(this).toggleClass('footer__topdrop--active')
@@ -152,6 +147,11 @@ $(function(){
   $('.aside__btn').on('click', function() {
     $(this).next().slideToggle();
   });
+
+  const btnSale = document.querySelector('#btn-sale').previousElementSibling;
+  btnSale.classList.toggle('checked');
+  const btnDiler = document.querySelector('#btn-diler').previousElementSibling;
+  btnDiler.classList.toggle('checked');
 
 });
 
